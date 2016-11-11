@@ -1,0 +1,19 @@
+{
+  "name": "helms",
+  "version": "1.0.0",
+  "description": "Deep javascript object operation.",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "node rollup.js"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "rollup": "^0.36.3",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-uglify": "^1.0.1"
+  },
+  "author": "atgJack <jack@atg.io>",
+  "license": "ISC"
+}
