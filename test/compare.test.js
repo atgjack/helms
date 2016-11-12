@@ -1,21 +1,20 @@
 import test from 'ava';
 
 import { compare } from '../lib';
-import data from './data';
+import createData from './data';
 
-data[4] = Object.assign({}, data[3], {
-  registered: new Date(),
-  regexp: /test/,
-});
-data[4].friends[2].name = 'Changed';
+const data = [];
+for (let i = 0; i < 5; i++) {
+  data[i] = createData();
+}
+data[1].colors.add('purple');
+data[2].friends.delete(2);
+data[3].registered = new Date();
+data[4].regexp = /different/;
 
 test('should return true on similar objects', (t) => {
-  t.plan(5);
-  t.true(compare(data[0], data[0]));
-  t.true(compare(data[1], data[1]));
-  t.true(compare(data[2], data[2]));
-  t.true(compare(data[3], data[3]));
-  t.true(compare(data[4], data[4]));
+  t.plan(1);
+  t.true(compare(data[0], createData()));
 });
 
 test('should return false on different objects', (t) => {
