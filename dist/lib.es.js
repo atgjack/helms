@@ -63,7 +63,6 @@ function compare(a, b) {
 }
 
 var constructors = [Date, RegExp, String, Number];
-
 function merge(a, b) {
   if (!(a instanceof Object) || !(b instanceof Object)) {
     throw new TypeError('You can only merge objects.');
@@ -73,7 +72,11 @@ function merge(a, b) {
       var oldProp = a[property];
       var newProp = b[property];
       if (!compare(oldProp, newProp)) {
-        if (constructors.indexOf(newProp.constructor) !== -1) {
+        if (newProp === undefined) {
+          delete a[property];
+        } else if (newProp === null) {
+          a[property] = null;
+        } else if (constructors.indexOf(newProp.constructor) !== -1) {
           a[property] = newProp;
         } else if (newProp instanceof Object && oldProp instanceof Object) {
           merge(oldProp, newProp);
