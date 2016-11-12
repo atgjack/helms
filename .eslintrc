@@ -1,3 +1,14 @@
 {
-  "extends": "airbnb/base"
+  "extends": "airbnb-base",
+  "rules": {
+    // Opinionated overrides.
+    "no-restricted-syntax": 0,
+    "space-unary-ops": 0,
+    "padded-blocks": 0,
+    "no-plusplus": 0,
+
+    // Project overrides
+    "valid-typeof": 0,
+    "no-param-reassign": 0
+  }
 }

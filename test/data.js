@@ -1,3 +1,5 @@
+/* eslint quotes: 0, comma-dangle: 0, quote-props: 0, no-underscore-dangle: 0 */
+
 const data = [
   {
     "_id": "582655635966501fee7e5aef",
@@ -179,11 +181,13 @@ const data = [
     "greeting": "Hello, Sutton Vargas! You have 5 unread messages.",
     "favoriteFruit": "banana"
   }
-]
+];
 
-data.forEach( d => {
-  d.registered = new Date(d.registered); 
+for (let i = 0; i < data.length; i++) {
+  const d = data[i];
+  d.id = d._id;
+  d.registered = new Date(d.registered);
   d.regexp = /abcd/;
-});
+}
 
 export default data;

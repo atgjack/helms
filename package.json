@@ -5,9 +5,11 @@
   "main": "dist/lib.js",
   "jsnext:main": "dist/lib.es.js",
   "scripts": {
+    "prepublish": "npm run lint && npm run test",
+    "prebundle": "npm run lint && npm run test",
     "bundle": "node rollup.js",
-    "test": "ava | faucet",
-    "lint": "eslint lib test"
+    "lint": "eslint lib test",
+    "test": "ava | faucet"
   },
   "devDependencies": {
     "ava": "^0.16.0",
